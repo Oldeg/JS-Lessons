@@ -1,3 +1,5 @@
+
+
 console.log('lesson 4');
 
 // http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
@@ -7,25 +9,46 @@ console.log('lesson 4');
 // Task 01
 // Создайте промис, который постоянно находиться в состоянии pending.
 // В конструкторе промиса выведите в консоль сообщение "Promise is created".
-
-
+/*const promise = new Promise((resolve,reject) => {
+} )
+console.log(promise)*/
 // Task 02
 // Создайте промис, который после создания сразу же переходит в состояние resolve
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
 
+/*const promise = new Promise((resolve,reject) => {
+   let data = 'Promise Data'
+   return  resolve(data)
+} )
+console.log(promise)*/
 
 // Task 03
 // Создайте промис, который после создания сразу же переходит в состояние rejected
 // и возвращает строку 'Promise Error'
 // Получите данные промиса и выведите их в консоль
-
+/*const promise = new Promise((resolve,rejected) => {
+   let data = 'Promise Error'
+   return  rejected(data)
+} )
+console.log(promise)*/
 
 // Task 04
 // Создайте промис, который переходит в состояние resolved через 3с.
 // (Используйте setTimeout)
 // и возвращает строку 'Promise Data'
 // Получите данные промиса и выведите их в консоль
+
+/*const promise = new Promise((resolve,reject) => {
+   let data = 'Promise Data'
+    setTimeout(() => {
+       resolve(data)
+   },3000)
+
+} )
+promise.then(data => {
+    console.log(data)
+})*/
 
 
 // Task 05
@@ -48,7 +71,25 @@ console.log('lesson 4');
 // прибавляет к нему Ваше имя и возвращает новую строку из функции
 // Создайте функцию print, которая выводит в консоль значение своего параметра
 // Добавьте два метода then и передайте созданные функции.
+/*const onSuccess =(data:string) => {
+    return data + ' Oleg'
+}
+const print = (string: string) => {
+    console.log(string)
+}
 
+const promise = new Promise((resolve) => {
+    let data:string = 'My name is'
+    setTimeout(() => {
+        resolve(data)
+    },1000)
+
+} )
+promise.then((data) => {
+   return onSuccess(data + '')
+}).then((data) => {
+    print(data)
+})*/
 
 // Task 7
 // Создайте три промиса. Первый промис возвращает объект { name: "Anna" } через 2с,
@@ -56,7 +97,27 @@ console.log('lesson 4');
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
 
+/*const promise1 = new Promise((resolve) => {
+ /!*   setTimeout(() => {
+        resolve({name: 'Anna'})
+    })
+})
+const promise2 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve({age: 16})
+    })
+})
+const promise3 = new Promise((resolve) => {
+    setTimeout(() => {
+        resolve({city: 'Minsk'})
+    })
+})
+
+Promise.all([promise1,promise2,promise3]).then((value) => {
+    console.log(value)
+})*!/*/
 
 
 // just a plug
-export default ()=>{};
+export default () => {
+};

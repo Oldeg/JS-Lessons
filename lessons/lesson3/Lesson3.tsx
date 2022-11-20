@@ -2,19 +2,29 @@ import React, { useState } from 'react';
 import API from './API';
 import './lesson_3';
 
+
 const Lesson3 = () => {
     const [searchName, setSearchName] = useState('');
-    const [serachResult, setSerachResult] = useState('');
+    const [serachResult, setSearchResult] = useState('');
     const [searchNameByType, setSearchNameByType] = useState('');
     const [serachResultByType, setSerachResultByType] = useState('');
 
     const searchFilm = () => {
-        API.searchFilmsByTitle(searchName)
+       const promise = API.searchFilmsByTitle(searchName)
+        promise.then(data =>{
+        setSearchResult(JSON.stringify(data))
+
+        })
+
+
     };
 
     const searchByType = (e: React.MouseEvent<HTMLButtonElement>) => {
         const type: string = e.currentTarget.dataset.t ? e.currentTarget.dataset.t : '';
-        API.searchFilmsByType(searchNameByType, type)
+        const promise = API.searchFilmsByType(searchNameByType, type)
+        promise.then(data => {
+            setSerachResultByType(JSON.stringify(data))
+        })
     }
 
     return (
