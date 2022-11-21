@@ -1,5 +1,3 @@
-
-
 console.log('lesson 4');
 
 // http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
@@ -97,8 +95,8 @@ promise.then((data) => {
 // Получите результаты работы промисов, объедините свойства объектов
 // и выведите в консоль {name, age, city}
 
-/*const promise1 = new Promise((resolve) => {
- /!*   setTimeout(() => {
+const promise1 = new Promise((resolve) => {
+    setTimeout(() => {
         resolve({name: 'Anna'})
     })
 })
@@ -113,9 +111,16 @@ const promise3 = new Promise((resolve) => {
     })
 })
 
-Promise.all([promise1,promise2,promise3]).then((value) => {
-    console.log(value)
-})*!/*/
+
+Promise.all([promise1, promise2, promise3]).then((value) => {
+
+    let name = value[0] as { name: string };
+    let age = value[1] as { age: number };
+    let city = value[2] as { city: string };
+    let obj = {...name, ...age, ...city};
+    console.log(obj)
+
+})
 
 
 // just a plug
